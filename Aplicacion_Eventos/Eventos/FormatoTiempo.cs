@@ -17,11 +17,33 @@ namespace Aplicacion_Eventos.Eventos
 
             cFormatoTiempo = $"{Math.Truncate(fTiempo)}";
 
-            string cMes = Math.Abs((int)fTiempo) == 1 ? $"{Math.Abs((int)fTiempo)} mes" : Math.Abs((int)fTiempo) > 0 ? $"{Math.Abs((int)fTiempo)} meses" : "";
+            //DateTime dt = Convert.ToDateTime(Math.Abs(fTiempo).ToString());
+            var le = Math.Abs(fTiempo).ToString();
 
-            string cDias = Math.Abs(dtCompararTiempo.Days) == 1 ? $"{ Math.Abs(dtCompararTiempo.Days)} día" : Math.Abs(dtCompararTiempo.Days) > 1 ? $"{ Math.Abs(dtCompararTiempo.Days)} días" : "";
-            string cMinutos = Math.Abs(dtCompararTiempo.Minutes) == 1 ? $"{Math.Abs(dtCompararTiempo.Minutes)} minuto" : Math.Abs(dtCompararTiempo.Minutes) > 1 ? $"{Math.Abs(dtCompararTiempo.Minutes)} minutos" : "";
-            string cHoras = Math.Abs(dtCompararTiempo.Hours) == 1 ? $"{Math.Abs(dtCompararTiempo.Hours)} hora" : Math.Abs(dtCompararTiempo.Hours) > 1 ? $"{Math.Abs(dtCompararTiempo.Hours)} horas" : "";
+            string b = le;
+            double d = double.Parse(b);
+
+            DateTime dt = DateTime.FromOADate(d);
+
+            //DateTime.TryParse(le, out DateTime dt);
+
+            string cMes = Math.Abs((int)fTiempo) == 1 ? $"{Math.Abs((int)fTiempo)} mes" : Math.Abs((int)fTiempo) > 0 ? $"{Math.Abs((int)fTiempo)} meses" : "";
+            string cDias="";
+            string cMinutos="";
+            string cHoras="";
+
+            if (Math.Abs(fTiempo) > 0)
+            {
+                 cDias = Math.Abs(dt.Day) == 1 ? $"{ Math.Abs(dt.Day)} día" : Math.Abs(dt.Day) > 1 ? $"{ Math.Abs(dt.Day)} días" : "";
+                 cMinutos = Math.Abs(dt.Minute) == 1 ? $"{Math.Abs(dt.Minute)} minuto" : Math.Abs(dt.Minute) > 1 ? $"{Math.Abs(dt.Minute)} minutos" : "";
+                 cHoras = Math.Abs(dt.Hour) == 1 ? $"{Math.Abs(dt.Hour)} hora" : Math.Abs(dt.Hour) > 1 ? $"{Math.Abs(dt.Hour)} horas" : "";
+
+            }
+            else
+            {
+
+            }
+
 
             string cTiempo;
             if (dtFecha.Hour > 0)
