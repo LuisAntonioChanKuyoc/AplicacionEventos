@@ -15,7 +15,7 @@ namespace Aplicacion_Eventos.Eventos
                 TimeSpan dtCompararTiempo = oEvento.dtTiempoEvento.Subtract(DateTime.Now);
                 int tiempo = dtCompararTiempo.Days;
                 var tiempoAbs = Math.Abs(tiempo);
-                string cTipoMensaje = tiempo > 0 ?  "ocurrirá dentro de": "ocurrió hace";
+                string cTipoMensaje = tiempo >= 0 ?  "ocurrirá dentro de": "ocurrió hace";
                 string cMensaje;
 
                 cMensaje = $"{oEvento.cNombreEvento} {cTipoMensaje} {FormatoTiempo.FormarTiempo(oEvento.dtTiempoEvento)}";

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Aplicacion_Eventos.DTO
+namespace Dominio.Entidades
 {
-    public class EventosDTO
+    public class EventosEntidad
     {
         public string cNombreEvento { get; set; }
         public DateTime dtTiempoEvento { get; set; }

@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{088BBF66-F123-49ED-B19A-2CD16F49274A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Aplicacion_Eventos</RootNamespace>
-    <AssemblyName>Aplicacion_Eventos</AssemblyName>
+    <ProjectGuid>{F09B5111-A1BA-4564-B2E0-442F500235FF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infrastructure</RootNamespace>
+    <AssemblyName>Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,21 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Eventos\EventosUI.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="Repositorio\EventosRepositorio.cs" />
+    <Compile Include="Repositorio\LecturaAchivoRepositorio.cs" />
+    <Compile Include="Repositorio\MensajeRepositorio.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">
       <Project>{210DC6E5-7F2A-4656-BF7C-4720779E4E98}</Project>
       <Name>Dominio</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
-      <Project>{F09B5111-A1BA-4564-B2E0-442F500235FF}</Project>
-      <Name>Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -21,7 +21,7 @@ namespace Aplicacion_Eventos.Eventos
                               }
                             ).ToList();
 
-            var lstEventos2 = mesajeEventos.Mensaje(lstEventos);
+            List<string> lstEventos2 = mesajeEventos.Mensaje(lstEventos);
             foreach (var item in lstEventos2)
             {
                 Console.WriteLine(item);
