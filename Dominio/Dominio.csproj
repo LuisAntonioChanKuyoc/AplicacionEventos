@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entidades\EventosEntidad.cs" />
-    <Compile Include="Extension\TiempoExtension.cs" />
-    <Compile Include="Interfaces\Repositorio\IEventosRepository.cs" />
-    <Compile Include="Interfaces\Repositorio\ILecturaAchivoRepositorio.cs" />
-    <Compile Include="Interfaces\Repositorio\IMensajeRepositorio.cs" />
+    <Compile Include="EventosUI\IVisualizadorEventos.cs" />
+    <Compile Include="Interfaces\CalcularTiempo\ICalcularTiempos.cs" />
+    <Compile Include="Interfaces\Fabrica\ICreadorInstancia.cs" />
+    <Compile Include="Interfaces\Repositorios\IEventosRepository.cs" />
+    <Compile Include="Interfaces\Repositorios\ILecturaAchivoRepositorio.cs" />
+    <Compile Include="Interfaces\Repositorios\IMensajeRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

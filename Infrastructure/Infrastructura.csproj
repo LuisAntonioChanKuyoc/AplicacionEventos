@@ -41,6 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalcularTiempo\CalculadorDias.cs" />
+    <Compile Include="CalcularTiempo\CalculadorHoras.cs" />
+    <Compile Include="CalcularTiempo\CalculadorMes.cs" />
+    <Compile Include="CalcularTiempo\CalculadorMinutos.cs" />
+    <Compile Include="Fabrica\CreadorInstancia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\EventosRepositorio.cs" />
     <Compile Include="Repositorio\LecturaAchivoRepositorio.cs" />
