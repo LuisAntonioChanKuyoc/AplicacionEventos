@@ -1,5 +1,4 @@
 ﻿using Dominio.Interfaces.Repositorio;
-using System;
 using System.IO;
 
 namespace Infrastructure.Repositorio

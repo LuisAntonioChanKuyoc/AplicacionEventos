@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Dominio.Entidades;
 using Dominio.Interfaces.CalcularTiempo;
 using Dominio.Interfaces.Fabrica;
-using Infrastructure.Fabrica;
 using Infrastructure.Repositorio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;

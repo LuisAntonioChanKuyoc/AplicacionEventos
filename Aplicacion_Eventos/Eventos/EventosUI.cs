@@ -19,7 +19,7 @@ namespace Aplicacion_Eventos
             if (string.IsNullOrEmpty(cRuta)) throw new ArgumentNullException(nameof(cRuta));
 
             _lecturaAchivoRepositorio = lecturaAchivoRepositorio ?? throw new ArgumentNullException(nameof(lecturaAchivoRepositorio));
-            _mensajeRepositorio = mensajeRepositorio ?? throw new ArgumentNullException(nameof(mensajeRepositorio)); 
+            _mensajeRepositorio = mensajeRepositorio ?? throw new ArgumentNullException(nameof(mensajeRepositorio));
             _eventosRepository = eventosRepository ?? throw new ArgumentNullException(nameof(eventosRepository));
             _visualizadorEventos = visualizadorEventos ?? throw new ArgumentNullException(nameof(visualizadorEventos));
             _cRuta = cRuta;
@@ -27,14 +27,20 @@ namespace Aplicacion_Eventos
 
         public void VisualizarEventos()
         {
+            List<string> lstMensajeEventos = ObtenerMensajesDeEventos();
+
+            _visualizadorEventos.VisualizarEventos(lstMensajeEventos);
+        }
+
+        public List<string> ObtenerMensajesDeEventos()
+        {
             string[] lineaEventos = _lecturaAchivoRepositorio.LeerAchivo(_cRuta);
 
             List<EventosEntidad> lstEventos = _eventosRepository.ListarEventos(lineaEventos);
 
             List<string> lstMensajeEventos = _mensajeRepositorio.CrearListaDeMensaje(lstEventos);
 
-            _visualizadorEventos.VisualizarEventos(lstMensajeEventos);
-
+            return lstMensajeEventos;
         }
     }
 }

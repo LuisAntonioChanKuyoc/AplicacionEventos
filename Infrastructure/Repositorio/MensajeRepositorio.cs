@@ -22,23 +22,37 @@ namespace Infrastructure.Repositorio
         {
             List<string> lstMensajesEventos = new List<string>();
 
-            foreach (var oEvento in lstEventos)
+            foreach (EventosEntidad oEvento in lstEventos)
             {
-                TimeSpan dtCompararTiempo = oEvento.dtTiempoEvento.Subtract(Obtenerfecha());
-                int tiempo = dtCompararTiempo.Days;
-
-                string cTipoMensaje = tiempo >= 0 && dtCompararTiempo.Hours > 0 ? "ocurrirá dentro de" : "ocurrió hace";
-
-                int TipoCalculadorTiempo = DeterminarTipoInstancia(dtCompararTiempo);
-
-                ICalcularTiempos CalculadorTiempo = _creadorInstancia.CrearInstancia(TipoCalculadorTiempo);
-
-                string cMensaje = $"{oEvento.cNombreEvento} {cTipoMensaje} {CalculadorTiempo.CalcularTiempo(dtCompararTiempo)}";
+                string cMensaje = CrearMensajeEvento(oEvento);
 
                 lstMensajesEventos.Add(cMensaje);
             }
 
             return lstMensajesEventos;
+        }
+
+        private string CrearMensajeEvento(EventosEntidad oEvento)
+        {
+            TimeSpan dtCompararTiempo = oEvento.dtTiempoEvento.Subtract(Obtenerfecha());
+            int tiempo = dtCompararTiempo.Days;
+
+            string cTipoMensaje = tiempo >= 0 && dtCompararTiempo.Hours > 0 ? "ocurrirá dentro de" : "ocurrió hace";
+
+            ICalcularTiempos CalculadorTiempo = ObtenerTipoDeTiempoDeEvento(dtCompararTiempo);
+
+            string cMensaje = $"{oEvento.cNombreEvento} {cTipoMensaje} {CalculadorTiempo.CalcularTiempo(dtCompararTiempo)}";
+
+            return cMensaje;
+        }
+
+        private ICalcularTiempos ObtenerTipoDeTiempoDeEvento(TimeSpan dtCompararTiempo)
+        {
+            int TipoCalculadorTiempo = DeterminarTipoInstancia(dtCompararTiempo);
+
+            ICalcularTiempos CalculadorTiempo = _creadorInstancia.CrearInstancia(TipoCalculadorTiempo);
+
+            return CalculadorTiempo;
         }
 
         private int DeterminarTipoInstancia(TimeSpan dtCompararTiempo)
